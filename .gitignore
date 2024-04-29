@@ -1,0 +1,12 @@
+node_modules
+dist
+out
+
+# OS
+.DS_Store
+
+# Logs
+*.log*
+
+# Env
+.env

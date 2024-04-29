@@ -1,0 +1,29 @@
+{
+  "name": "dragonbones-pixi",
+  "version": "1.0.0",
+  "description": "DragonBones with pixi v7,v8+",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "clean": "tsc --build --clean",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "dragonbones",
+    "pixi"
+  ],
+  "author": "atomixnmc",
+  "license": "ISC",
+  "dependencies": {
+    "pixi.js": "^8.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.12.7",
+    "eslint": "^9.1.1",
+    "prettier": "^3.2.5",
+    "typescript": "^5.4.5",
+    "vite": "^5.2.0"
+  }
+}
