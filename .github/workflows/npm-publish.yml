@@ -6,12 +6,6 @@ name: Publish NPM Package
 on:
   release:
     types: [created]
-  manual:
-    inputs:
-      tag:
-        description: 'Tag to publish'
-        required: true
-        default: 'latest'
 
 jobs:
   build:
