@@ -2,13 +2,30 @@
   "name": "dragonbones-pixi",
   "version": "1.0.0",
   "description": "DragonBones with pixi v7,v8+",
-  "main": "index.js",
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./dist/dragonbones-pixi.js",
+      "require": "./dist/dragonbones-pixi.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "main": "dist/dragonbones-pixi.js",
+  "module": "dist/dragonbones-pixi.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SGGames/DragonBones-Pixi.git"
+  },
+  "homepage": "https://github.com/SGGames/DragonBones-Pixi#readme",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
     "clean": "tsc --build --clean",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build-demo": "vite build --config vite.demo.config.js",
+    "surge": "surge dist-demo dragonbones-pixi-v8-demo.surge.sh"
   },
   "keywords": [
     "dragonbones",

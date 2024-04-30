@@ -1,50 +1,39 @@
-/*
-//
-if (!console.warn) {
-  console.warn = function () {};
-}
-
-if (!console.assert) {
-  console.assert = function () {};
-}
-//
-if (!Date.now) {
-  Date.now = function now() {
-    return new Date().getTime();
-  };
-}
-
-// Weixin can not support typescript extends.
-var __extends: any = function (t: any, e: any) {
-  function r(this: any) {
-    this.constructor = t;
-  }
-  for (var i in e) {
-    if ((e as any).hasOwnProperty(i)) {
-      t[i] = e[i];
-    }
-  }
-  (r.prototype = e.prototype), (t.prototype = new (r as any)());
-};
-//
-if (typeof global === "undefined" && typeof window !== "undefined") {
-  var global = window as any;
-}
-//
-declare var exports: any;
-declare var module: any;
-declare var define: any;
-if (typeof exports === "object" && typeof module === "object") {
-  module.exports = dragonBones;
-} else if (typeof define === "function" && define["amd"]) {
-  define(["dragonBones"], function () {
-    return dragonBones;
-  });
-} else if (typeof exports === "object") {
-  exports = dragonBones;
-} else if (typeof global !== "undefined") {
-  global.dragonBones = dragonBones;
-}
-*/
-
 export * from "./core/DragonBones";
+export * from "./core/BaseObject";
+
+export * from "./animation/Animation";
+export * from "./animation/WorldClock";
+export * from "./animation/IAnimatable";
+export * from "./animation/AnimationState";
+export * from "./animation/BaseTimelineState";
+
+export * from "./model/AnimationConfig";
+export * from "./model/AnimationData";
+export * from "./model/ArmatureData";
+export * from "./model/BoundingBoxData";
+export * from "./model/CanvasData";
+export * from "./model/ConstraintData";
+export * from "./model/DisplayData";
+export * from "./model/DragonBonesData";
+export * from "./model/SkinData";
+export * from "./model/TextureAtlasData";
+export * from "./model/UserData";
+
+export * from "./factory/BaseFactory";
+
+export * from "./parser/BinaryDataParser";
+export * from "./parser/DataParser";
+export * from "./parser/ObjectDataParser";
+
+export * from "./armature/Armature";
+export * from "./armature/Slot";
+
+export * from "./event/EventObject";
+export * from "./event/IEventDispatcher";
+
+export * from "./geom/Matrix";
+export * from "./geom/Transform";
+export * from "./geom/Point";
+export * from "./geom/Rectangle";
+export * from "./geom/ColorTransform";
+export * from "./geom/Matrix";
