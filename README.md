@@ -11,7 +11,7 @@ But... there is Hope!
 🔥🔥🔥 Stay tuned! 🔥🔥🔥
 
 ## Feature list
-Same as DragonBones.js at the moment but will be added soon with more next-gen features:
+Same as DragonBones.js at the moment:
 
 - ✅ Modern typescript
 - ✅ Pixi V8 with much better performance
@@ -20,9 +20,18 @@ Same as DragonBones.js at the moment but will be added soon with more next-gen f
 - ✅ IK
 - ✅ Events
 - ✅ Userdata
-🔥
 
 
+but will be added soon with more next-gen features
+- 🔥 AI Generated images and characters with animation
+- 🔥 2D/3D motion matching
+- 🔥 Export to Threejs
+- 🔥 Export to Babalonjs
+- 🔥 Export to Unity
+- 🔥 Export to Godot
+- 🔥 Export to Unreal
+- 🔥 Anigo the 2D editor
+- 🔥 Blender plugin
 
 ## To use as library
 ```
@@ -113,6 +122,10 @@ https://github.com/DragonBones/DragonBonesJS
 
 Pixi.js
 
-https://pixijs.com/
-https://github.com/pixijs/pixijs
-https://pixijs.com/8.x/guides/migrations/v8
+- https://pixijs.com/
+- https://github.com/pixijs/pixijs
+- https://pixijs.com/8.x/guides/migrations/v8 (How to migrate from old version)
+
+## Contributions
+- Credit to SGGames.us
+- Main contributor: @atomixnmc
