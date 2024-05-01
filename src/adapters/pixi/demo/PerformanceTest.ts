@@ -11,7 +11,7 @@ export default class PerformanceTest extends BaseDemo {
     private _text: Text;
 
     public constructor() {
-        super();
+        super('PerformanceTest');
 
         this._resources.push(
             "resource/mecha_1406/mecha_1406_ske.json",

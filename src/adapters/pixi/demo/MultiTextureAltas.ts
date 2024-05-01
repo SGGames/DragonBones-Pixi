@@ -9,7 +9,7 @@ export default class MultiTextureAltas extends BaseDemo {
     private _armatureDisplayD: PixiArmatureDisplay | null = null;
 
     public constructor() {
-        super();
+        super('MultiTextureAltas');
 
         this._resources.push(
             "resource/effect/effect_ske.json",

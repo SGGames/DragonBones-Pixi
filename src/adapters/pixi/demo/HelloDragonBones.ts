@@ -20,7 +20,7 @@ import { DragonBones } from "../../../dragonBones";
  */
 export default class HelloDragonBones extends BaseDemo {
     public constructor() {
-        super();
+        super('HelloDragonBones');
 
         this._resources.push(
             "resource/mecha_1002_101d_show/mecha_1002_101d_show_ske.json",

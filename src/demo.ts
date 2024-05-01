@@ -16,6 +16,7 @@ import BoundingBox from './adapters/pixi/demo/BoundingBox';
 import { CoreElementGame } from './adapters/pixi/demo/CoreElement';
 
 const demoApps: BaseDemo[] = [];
+const buttons: HTMLButtonElement[] = [];
 let currentDemo: BaseDemo;
 
 
@@ -42,7 +43,8 @@ currentDemo = demoApps[0];
 for (let i = 0; i < demoApps.length; i++) {
     const demo = demoApps[i];
     const button = document.createElement("button");
-    button.innerText = demo.constructor.name;
+    buttons.push(button);
+    button.innerText = demo.appName;
     button.onclick = async () => {
         if (currentDemo) {
             try {
@@ -51,8 +53,14 @@ for (let i = 0; i < demoApps.length; i++) {
                 console.error(e);
             }
         }
+        for (let j = 0; j < buttons.length; j++) {
+            buttons[j].disabled = true;
+        }
         currentDemo = demo;
         await currentDemo.init();
+        for (let j = 0; j < buttons.length; j++) {
+            buttons[j].disabled = false;
+        }
     };
     document.body.appendChild(button);
 }

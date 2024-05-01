@@ -21,7 +21,7 @@ export default class BoundingBox extends BaseDemo {
     private _pointB: Bone;
 
     public constructor() {
-        super();
+        super('BoundingBox');
 
         this._resources.push(
             "resource/mecha_2903/mecha_2903_ske.json",

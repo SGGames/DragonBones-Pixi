@@ -7,8 +7,10 @@ export default abstract class BaseDemo {
     protected readonly _resources: string[] = [];
     protected _pixiResources: any;
     container: Container;
+    appName: string;
 
-    public constructor() {
+    public constructor(appName: string) {
+        this.appName = appName;
         this.app = new Application();
         this.container = new Container();
     }

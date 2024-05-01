@@ -19,7 +19,7 @@ export default class ReplaceSlotDisplay extends BaseDemo {
   private _logoText: PIXI.Text;
 
   public constructor() {
-    super();
+    super('ReplaceSlotDisplay');
 
     this._resources.push(
       "resource/mecha_1004d_show/mecha_1004d_show_ske.json",

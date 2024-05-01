@@ -6,7 +6,7 @@ import * as PIXI from 'pixi.js';
 
 export default class BoneOffset extends BaseDemo {
     public constructor() {
-        super();
+        super('BoneOffset');
 
         this._resources.push(
             "resource/bullet_01/bullet_01_ske.json",

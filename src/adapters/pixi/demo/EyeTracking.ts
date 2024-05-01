@@ -23,7 +23,7 @@ export default class EyeTracking extends BaseDemo {
     private _armatureDisplay: PixiArmatureDisplay;
 
     public constructor() {
-        super();
+        super('EyeTracking');
 
         this._resources.push(
             "resource/shizuku/shizuku_ske.json",

@@ -8,7 +8,7 @@ export default class DragonBonesEvent extends BaseDemo {
     private _armatureDisplay: PixiArmatureDisplay;
 
     public constructor() {
-        super();
+        super('DragonBonesEvent');
 
         this._resources.push(
             "resource/mecha_1004d/mecha_1004d_ske.json",

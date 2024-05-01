@@ -11,7 +11,7 @@ export default class ReplaceSkin extends BaseDemo {
     private _armatureDisplay: PixiArmatureDisplay;
 
     public constructor() {
-        super();
+        super('ReplaceSkin');
 
         this._suitConfigs.push([
             "2010600a",

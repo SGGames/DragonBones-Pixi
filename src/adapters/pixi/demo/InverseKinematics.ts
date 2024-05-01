@@ -23,7 +23,7 @@ export default class InverseKinematics extends BaseDemo {
     private _aimState: AnimationState | null = null;
 
     public constructor() {
-        super();
+        super('InverseKinematics');
 
         this._resources.push(
             "resource/mecha_1406/mecha_1406_ske.json",

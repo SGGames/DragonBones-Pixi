@@ -22,7 +22,7 @@ export class CoreElementGame extends BaseDemo {
     private readonly _bullets: Array<Bullet> = [];
 
     public constructor() {
-        super();
+        super('CoreElementGame');
 
         this._resources.push(
             "resource/mecha_1502b/mecha_1502b_ske.json",

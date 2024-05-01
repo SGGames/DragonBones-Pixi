@@ -7,7 +7,7 @@ export default class AnimationBase extends BaseDemo {
     private _armatureDisplay: PixiArmatureDisplay;
 
     public constructor() {
-        super();
+        super('AnimationBase');
 
         this._resources.push(
             "resource/progress_bar/progress_bar_ske.json",

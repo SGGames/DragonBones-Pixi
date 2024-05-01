@@ -9,7 +9,7 @@ export default class ReplaceAnimation extends BaseDemo {
     private _armatureDisplayD: PixiArmatureDisplay;
 
     public constructor() {
-        super();
+        super('ReplaceAnimation');
 
         this._resources.push(
             "resource/mecha_2903/mecha_2903_ske.json",

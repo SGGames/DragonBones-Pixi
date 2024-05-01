@@ -7,7 +7,7 @@ export default class AnimationLayer extends BaseDemo {
     private _armatureDisplay: PixiArmatureDisplay;
 
     public constructor() {
-        super();
+        super('AnimationLayer');
 
         this._resources.push(
             "resource/mecha_1004d/mecha_1004d_ske.json",
