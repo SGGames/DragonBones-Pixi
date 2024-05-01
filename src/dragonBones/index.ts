@@ -26,7 +26,12 @@ export * from "./parser/DataParser";
 export * from "./parser/ObjectDataParser";
 
 export * from "./armature/Armature";
+export * from "./armature/Bone";
+export * from "./armature/Constraint";
+export * from "./armature/IArmatureProxy";
 export * from "./armature/Slot";
+export * from "./armature/Surface";
+export * from "./armature/TransformObject";
 
 export * from "./event/EventObject";
 export * from "./event/IEventDispatcher";
@@ -36,4 +41,3 @@ export * from "./geom/Transform";
 export * from "./geom/Point";
 export * from "./geom/Rectangle";
 export * from "./geom/ColorTransform";
-export * from "./geom/Matrix";

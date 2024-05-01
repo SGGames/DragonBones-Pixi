@@ -1,7 +1,7 @@
 {
   "name": "dragonbones-pixijs",
-  "version": "1.0.0",
-  "description": "DragonBones with pixi v7,v8+",
+  "version": "1.0.1",
+  "description": "DragonBones runtime for pixi v7,v8+",
   "type": "module",
   "exports": {
     ".": {
