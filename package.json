@@ -1,6 +1,6 @@
 {
   "name": "dragonbones-pixijs",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "DragonBones runtime for pixi v7,v8+",
   "type": "module",
   "exports": {
@@ -12,7 +12,7 @@
   "files": [
     "dist"
   ],
-  "main": "dist/dragonbones-pixi.js",
+  "main": "dist/dragonbones-pixi.umd.cjs",
   "module": "dist/dragonbones-pixi.js",
   "repository": {
     "type": "git",
