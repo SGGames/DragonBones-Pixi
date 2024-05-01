@@ -1,4 +1,4 @@
-# DragonBones - Pixi V8
+# DragonBones Runtime - Pixi (V8)
 DragonBones runtime and Demo for Pixi V8.
 
 ## Why?
@@ -21,8 +21,7 @@ Same as DragonBones.js at the moment:
 - ✅ Events
 - ✅ Userdata
 
-
-but will be added soon with more next-gen features
+but soon with more next-gen features:
 - 🔥 AI Generated images and characters with animation
 - 🔥 2D/3D motion matching
 - 🔥 Export to Threejs
@@ -34,6 +33,8 @@ but will be added soon with more next-gen features
 - 🔥 Blender plugin
 
 ## To use as library
+https://www.npmjs.com/package/dragonbones-pixijs
+
 ```
 npm install dragonbones-pixijs
 ```
