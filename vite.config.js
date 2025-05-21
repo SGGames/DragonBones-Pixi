@@ -1,7 +1,5 @@
 import { resolve } from 'path'
 import { defineConfig } from 'vite'
-import dts from 'vite-plugin-dts'
-// import typescript from '@rollup/plugin-typescript';
 
 export default defineConfig({
   publicDir: false,
