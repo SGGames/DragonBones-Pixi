@@ -46,11 +46,6 @@ export abstract class BaseFactory {
    * @version DragonBones 3.0
    * @language en_US
    */
-  /**
-   * - 创建一个工厂实例。 （通常只需要一个全局工厂实例）
-   * @version DragonBones 3.0
-   * @language zh_CN
-   */
   public constructor(dataParser: DataParser | null = null) {
     if (BaseFactory._objectParser === null) {
       BaseFactory._objectParser = new ObjectDataParser();
@@ -394,19 +389,6 @@ export abstract class BaseFactory {
    * @version DragonBones 4.5
    * @language en_US
    */
-  /**
-   * - 将原始数据解析为 DragonBonesData 实例，并缓存到工厂中。
-   * @param rawData - 原始数据。
-   * @param name - 为该实例指定一个缓存名称，以便可以通过此名称获取该实例。 （如果未设置，则使用该实例中的名称）
-   * @param scale - 为所有的骨架指定一个缩放值。 （默认: 1.0）
-   * @returns DragonBonesData 实例
-   * @see #getDragonBonesData()
-   * @see #addDragonBonesData()
-   * @see #removeDragonBonesData()
-   * @see dragonBones.DragonBonesData
-   * @version DragonBones 4.5
-   * @language zh_CN
-   */
   public parseDragonBonesData(
     rawData: any,
     name: string | null = null,
@@ -448,20 +430,6 @@ export abstract class BaseFactory {
    * @version DragonBones 4.5
    * @language en_US
    */
-  /**
-   * - 将原始贴图集数据和贴图集对象解析为 TextureAtlasData 实例，并缓存到工厂中。
-   * @param rawData - 原始贴图集数据。
-   * @param textureAtlas - 贴图集对象。
-   * @param name - 为该实例指定一个缓存名称，以便可以通过此名称获取该实例。 （如果未设置，则使用该实例中的名称）
-   * @param scale - 为贴图集指定一个缩放值。 （默认: 1.0）
-   * @returns TextureAtlasData 实例
-   * @see #getTextureAtlasData()
-   * @see #addTextureAtlasData()
-   * @see #removeTextureAtlasData()
-   * @see dragonBones.TextureAtlasData
-   * @version DragonBones 4.5
-   * @language zh_CN
-   */
   public parseTextureAtlasData(
     rawData: any,
     textureAtlas: any,
@@ -481,13 +449,6 @@ export abstract class BaseFactory {
    * @param name - The texture atlas name.
    * @version DragonBones 5.7
    * @language en_US
-   */
-  /**
-   * - 更新贴图集对象。
-   * @param textureAtlases - 多个贴图集对象。
-   * @param name - 贴图集名称。
-   * @version DragonBones 5.7
-   * @language zh_CN
    */
   public updateTextureAtlases(textureAtlases: Array<any>, name: string): void {
     const textureAtlasDatas = this.getTextureAtlasData(name);
@@ -510,17 +471,6 @@ export abstract class BaseFactory {
    * @version DragonBones 3.0
    * @language en_US
    */
-  /**
-   * - 获取特定的 DragonBonesData 实例。
-   * @param name - DragonBonesData 实例的缓存名称。
-   * @returns DragonBonesData 实例
-   * @see #parseDragonBonesData()
-   * @see #addDragonBonesData()
-   * @see #removeDragonBonesData()
-   * @see dragonBones.DragonBonesData
-   * @version DragonBones 3.0
-   * @language zh_CN
-   */
   public getDragonBonesData(name: string): DragonBonesData | null {
     return name in this._dragonBonesDataMap
       ? this._dragonBonesDataMap[name]
@@ -536,17 +486,6 @@ export abstract class BaseFactory {
    * @see dragonBones.DragonBonesData
    * @version DragonBones 3.0
    * @language en_US
-   */
-  /**
-   * - 将 DragonBonesData 实例缓存到工厂中。
-   * @param data - DragonBonesData 实例。
-   * @param name - 为该实例指定一个缓存名称，以便可以通过此名称获取该实例。 （如果未设置，则使用该实例中的名称）
-   * @see #parseDragonBonesData()
-   * @see #getDragonBonesData()
-   * @see #removeDragonBonesData()
-   * @see dragonBones.DragonBonesData
-   * @version DragonBones 3.0
-   * @language zh_CN
    */
   public addDragonBonesData(
     data: DragonBonesData,
@@ -575,17 +514,6 @@ export abstract class BaseFactory {
    * @version DragonBones 3.0
    * @language en_US
    */
-  /**
-   * - 移除 DragonBonesData 实例。
-   * @param name - DragonBonesData 实例缓存名称。
-   * @param disposeData - 是否释放数据。 （默认: true）
-   * @see #parseDragonBonesData()
-   * @see #getDragonBonesData()
-   * @see #addDragonBonesData()
-   * @see dragonBones.DragonBonesData
-   * @version DragonBones 3.0
-   * @language zh_CN
-   */
   public removeDragonBonesData(
     name: string,
     disposeData: boolean = true
@@ -608,16 +536,6 @@ export abstract class BaseFactory {
    * @version DragonBones 3.0
    * @language en_US
    */
-  /**
-   * - 获取特定的 TextureAtlasData 实例列表。
-   * @param name - TextureAtlasData 实例缓存名称。
-   * @see #parseTextureAtlasData()
-   * @see #addTextureAtlasData()
-   * @see #removeTextureAtlasData()
-   * @see dragonBones.TextureAtlasData
-   * @version DragonBones 3.0
-   * @language zh_CN
-   */
   public getTextureAtlasData(name: string): Array<TextureAtlasData> | null {
     return name in this._textureAtlasDataMap
       ? this._textureAtlasDataMap[name]
@@ -633,17 +551,6 @@ export abstract class BaseFactory {
    * @see dragonBones.TextureAtlasData
    * @version DragonBones 3.0
    * @language en_US
-   */
-  /**
-   * - 将 TextureAtlasData 实例缓存到工厂中。
-   * @param data - TextureAtlasData 实例。
-   * @param name - 为该实例指定一个缓存名称，以便可以通过此名称获取该实例。 （如果未设置，则使用该实例中的名称）
-   * @see #parseTextureAtlasData()
-   * @see #getTextureAtlasData()
-   * @see #removeTextureAtlasData()
-   * @see dragonBones.TextureAtlasData
-   * @version DragonBones 3.0
-   * @language zh_CN
    */
   public addTextureAtlasData(
     data: TextureAtlasData,
@@ -669,17 +576,6 @@ export abstract class BaseFactory {
    * @version DragonBones 3.0
    * @language en_US
    */
-  /**
-   * - 移除 TextureAtlasData 实例。
-   * @param name - TextureAtlasData 实例的缓存名称。
-   * @param disposeData - 是否释放数据。
-   * @see #parseTextureAtlasData()
-   * @see #getTextureAtlasData()
-   * @see #addTextureAtlasData()
-   * @see dragonBones.TextureAtlasData
-   * @version DragonBones 3.0
-   * @language zh_CN
-   */
   public removeTextureAtlasData(
     name: string,
     disposeData: boolean = true
@@ -702,14 +598,6 @@ export abstract class BaseFactory {
    * @see dragonBones.ArmatureData
    * @version DragonBones 5.1
    * @language en_US
-   */
-  /**
-   * - 获取特定的骨架数据。
-   * @param name - 骨架数据名称。
-   * @param dragonBonesName - DragonBonesData 实例的缓存名称。
-   * @see dragonBones.ArmatureData
-   * @version DragonBones 5.1
-   * @language zh_CN
    */
   public getArmatureData(
     name: string,
@@ -735,12 +623,6 @@ export abstract class BaseFactory {
    * @param disposeData - Whether to dispose data.
    * @version DragonBones 4.5
    * @language en_US
-   */
-  /**
-   * - 清除缓存的所有 DragonBonesData 实例和 TextureAtlasData 实例。
-   * @param disposeData - 是否释放数据。
-   * @version DragonBones 4.5
-   * @language zh_CN
    */
   public clear(disposeData: boolean = true): void {
     for (let k in this._dragonBonesDataMap) {
@@ -778,23 +660,6 @@ export abstract class BaseFactory {
    * @see dragonBones.ArmatureData
    * @version DragonBones 3.0
    * @language en_US
-   */
-  /**
-   * - 通过缓存的 DragonBonesData 实例和 TextureAtlasData 实例创建一个骨架。
-   * 注意，创建的骨架不再使用时，需要显式释放 {@link #dragonBones.Armature#dispose()}。
-   * @param armatureName - 骨架数据名称。
-   * @param dragonBonesName - DragonBonesData 实例的缓存名称。 （如果未设置，将检索所有的 DragonBonesData 实例，当多个 DragonBonesData 实例中包含同名的骨架数据时，可能无法准确的创建出特定的骨架）
-   * @param skinName - 皮肤名称，可以设置一个其他骨架数据名称来共享其皮肤数据。（如果未设置，则使用默认的皮肤数据）
-   * @returns 骨架。
-   * @example
-   * <pre>
-   *     let armature = factory.buildArmature("armatureName", "dragonBonesName");
-   *     armature.clock = factory.clock;
-   * </pre>
-   * @see dragonBones.DragonBonesData
-   * @see dragonBones.ArmatureData
-   * @version DragonBones 3.0
-   * @language zh_CN
    */
   public buildArmature(
     armatureName: string,
@@ -883,23 +748,6 @@ export abstract class BaseFactory {
    * @version DragonBones 4.5
    * @language en_US
    */
-  /**
-   * - 用特定的显示对象数据替换特定插槽当前的显示对象数据。
-   * 用 "dragonBonesName/armatureName/slotName/displayName" 指定显示对象数据。
-   * @param dragonBonesName - DragonBonesData 实例的缓存名称。
-   * @param armatureName - 骨架数据名称。
-   * @param slotName - 插槽数据名称。
-   * @param displayName - 显示对象数据名称。
-   * @param slot - 插槽。
-   * @param displayIndex - 被替换的显示对象数据的索引。 （如果未设置，则替换当前的显示对象数据）
-   * @example
-   * <pre>
-   *     let slot = armature.getSlot("weapon");
-   *     factory.replaceSlotDisplay("dragonBonesName", "armatureName", "slotName", "displayName", slot);
-   * </pre>
-   * @version DragonBones 4.5
-   * @language zh_CN
-   */
   public replaceSlotDisplay(
     dragonBonesName: string,
     armatureName: string,
@@ -973,25 +821,6 @@ export abstract class BaseFactory {
    * @version DragonBones 5.6
    * @language en_US
    */
-  /**
-   * - 将特定的皮肤数据共享给特定的骨架使用。
-   * @param armature - 骨架。
-   * @param skin - 皮肤数据。
-   * @param isOverride - 是否完全覆盖原来的皮肤。 （默认: false）
-   * @param exclude - 不需要被替换的插槽名称列表。
-   * @example
-   * <pre>
-   *     let armatureA = factory.buildArmature("armatureA", "dragonBonesA");
-   *     let armatureDataB = factory.getArmatureData("armatureB", "dragonBonesB");
-   *     if (armatureDataB && armatureDataB.defaultSkin) {
-   *     factory.replaceSkin(armatureA, armatureDataB.defaultSkin, false, ["arm_l", "weapon_l"]);
-   *     }
-   * </pre>
-   * @see dragonBones.Armature
-   * @see dragonBones.SkinData
-   * @version DragonBones 5.6
-   * @language zh_CN
-   */
   public replaceSkin(
     armature: Armature,
     skin: SkinData,
@@ -1055,25 +884,6 @@ export abstract class BaseFactory {
    * @see dragonBones.ArmatureData
    * @version DragonBones 5.6
    * @language en_US
-   */
-  /**
-   * - 用特定骨架数据的动画数据替换特定骨架现有的动画数据。
-   * 这样就能实现制作一个骨架动画模板，让其他没有制作动画的骨架共享该动画。
-   * @param armature - 骨架。
-   * @param armatureData - 骨架数据。
-   * @param isOverride - 是否完全覆盖原来的动画。（默认: false）
-   * @example
-   * <pre>
-   *     let armatureA = factory.buildArmature("armatureA", "dragonBonesA");
-   *     let armatureDataB = factory.getArmatureData("armatureB", "dragonBonesB");
-   *     if (armatureDataB) {
-   *     factory.replaceAnimation(armatureA, armatureDataB);
-   *     }
-   * </pre>
-   * @see dragonBones.Armature
-   * @see dragonBones.ArmatureData
-   * @version DragonBones 5.6
-   * @language zh_CN
    */
   public replaceAnimation(
     armature: Armature,
@@ -1146,11 +956,6 @@ export abstract class BaseFactory {
    * - An Worldclock instance updated by engine.
    * @version DragonBones 5.7
    * @language en_US
-   */
-  /**
-   * - 由引擎驱动的 WorldClock 实例。
-   * @version DragonBones 5.7
-   * @language zh_CN
    */
   public get clock(): WorldClock {
     return this._dragonBones.clock;

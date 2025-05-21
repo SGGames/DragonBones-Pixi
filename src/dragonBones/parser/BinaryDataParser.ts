@@ -521,11 +521,6 @@ export class BinaryDataParser extends ObjectDataParser {
    * @deprecated
    * @language en_US
    */
-  /**
-   * - 已废弃，请参考 {@link dragonBones.BaseFactory#parseDragonBonesData()}。
-   * @deprecated
-   * @language zh_CN
-   */
   public static getInstance(): BinaryDataParser {
     if (BinaryDataParser._binaryDataParserInstance === null) {
       BinaryDataParser._binaryDataParserInstance = new BinaryDataParser();

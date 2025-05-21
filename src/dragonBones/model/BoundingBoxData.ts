@@ -348,11 +348,6 @@ export class RectangleBoundingBoxData extends BoundingBoxData {
  * @version DragonBones 5.1
  * @language en_US
  */
-/**
- * - 椭圆边界框数据。
- * @version DragonBones 5.1
- * @language zh_CN
- */
 export class EllipseBoundingBoxData extends BoundingBoxData {
   public static toString(): string {
     return "[class dragonBones.EllipseData]";
@@ -527,11 +522,6 @@ export class EllipseBoundingBoxData extends BoundingBoxData {
  * @version DragonBones 5.1
  * @language en_US
  */
-/**
- * - 多边形边界框数据。
- * @version DragonBones 5.1
- * @language zh_CN
- */
 export class PolygonBoundingBoxData extends BoundingBoxData {
   public static toString(): string {
     return "[class dragonBones.PolygonBoundingBoxData]";
@@ -703,11 +693,6 @@ export class PolygonBoundingBoxData extends BoundingBoxData {
    * - The polygon vertices.
    * @version DragonBones 5.1
    * @language en_US
-   */
-  /**
-   * - 多边形顶点。
-   * @version DragonBones 5.1
-   * @language zh_CN
    */
   public readonly vertices: Array<number> = [];
 

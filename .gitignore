@@ -1,5 +1,6 @@
 node_modules
 dist
+dist-types
 dist-demo
 out
 

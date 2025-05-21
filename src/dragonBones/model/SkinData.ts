@@ -17,11 +17,6 @@ export class SkinData extends BaseObject {
    * @version DragonBones 3.0
    * @language en_US
    */
-  /**
-   * - 皮肤名称。
-   * @version DragonBones 3.0
-   * @language zh_CN
-   */
   public name: string;
   /**
    * @private

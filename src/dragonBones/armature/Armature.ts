@@ -35,13 +35,6 @@ export class Armature extends BaseObject implements IAnimatable {
    * @version DragonBones 4.5
    * @language en_US
    */
-  /**
-   * - 是否继承父骨架的动画控制。
-   * 如果该值为 true，当父骨架播放动画时，会尝试让子骨架播放同名动画。
-   * @default true
-   * @version DragonBones 4.5
-   * @language zh_CN
-   */
   public inheritAnimation: boolean;
   /**
    * @private
@@ -239,16 +232,6 @@ export class Armature extends BaseObject implements IAnimatable {
    * @version DragonBones 3.0
    * @language en_US
    */
-  /**
-   * - 释放骨架。 （回收到对象池）
-   * @example
-   * <pre>
-   *     removeChild(armature.display);
-   *     armature.dispose();
-   * </pre>
-   * @version DragonBones 3.0
-   * @language zh_CN
-   */
   public dispose(): void {
     if (this._armatureData !== null) {
       this._lockUpdate = true;
@@ -387,15 +370,6 @@ export class Armature extends BaseObject implements IAnimatable {
    * @version DragonBones 3.0
    * @language en_US
    */
-  /**
-   * - 强制特定骨骼或其拥有的插槽在下一帧更新变换或显示属性。
-   * @param boneName - 骨骼名称。 （如果未设置，将更新所有骨骼）
-   * @param updateSlot - 是否更新骨骼的插槽。 （默认: false）
-   * @see dragonBones.Bone#invalidUpdate()
-   * @see dragonBones.Slot#invalidUpdate()
-   * @version DragonBones 3.0
-   * @language zh_CN
-   */
   public invalidUpdate(
     boneName: string | null = null,
     updateSlot: boolean = false
@@ -434,15 +408,6 @@ export class Armature extends BaseObject implements IAnimatable {
    * @version DragonBones 5.0
    * @language en_US
    */
-  /**
-   * - 检查特定点是否在某个插槽的自定义边界框内。
-   * 点的坐标系为骨架内坐标系。
-   * 自定义边界框需要在 DragonBones Pro 中自定义。
-   * @param x - 点的水平坐标。
-   * @param y - 点的垂直坐标。
-   * @version DragonBones 5.0
-   * @language zh_CN
-   */
   public containsPoint(x: number, y: number): Slot | null {
     for (const slot of this._slots) {
       if (slot.containsPoint(x, y)) {
@@ -466,21 +431,6 @@ export class Armature extends BaseObject implements IAnimatable {
    * @returns The slot of the first custom bounding box where the segment intersects from the start point to the end point.
    * @version DragonBones 5.0
    * @language en_US
-   */
-  /**
-   * - 检查特定线段是否与骨架的某个插槽的自定义边界框相交。
-   * 线段和交点的坐标系均为骨架内坐标系。
-   * 自定义边界框需要在 DragonBones Pro 中自定义。
-   * @param xA - 线段起点的水平坐标。
-   * @param yA - 线段起点的垂直坐标。
-   * @param xB - 线段终点的水平坐标。
-   * @param yB - 线段终点的垂直坐标。
-   * @param intersectionPointA - 线段从起点到终点与边界框相交的第一个交点。 （如果未设置，则不计算交点）
-   * @param intersectionPointB - 线段从终点到起点与边界框相交的第一个交点。 （如果未设置，则不计算交点）
-   * @param normalRadians - 交点边界框切线的法线弧度。 [x: 第一个交点切线的法线弧度, y: 第二个交点切线的法线弧度] （如果未设置，则不计算法线）
-   * @returns 线段从起点到终点相交的第一个自定义边界框的插槽。
-   * @version DragonBones 5.0
-   * @language zh_CN
    */
   public intersectsSegment(
     xA: number,
@@ -584,13 +534,6 @@ export class Armature extends BaseObject implements IAnimatable {
    * @version DragonBones 3.0
    * @language en_US
    */
-  /**
-   * - 获取特定的骨骼。
-   * @param name - 骨骼名称。
-   * @see dragonBones.Bone
-   * @version DragonBones 3.0
-   * @language zh_CN
-   */
   public getBone(name: string): Bone | null {
     for (const bone of this._bones) {
       if (bone.name === name) {
@@ -607,13 +550,6 @@ export class Armature extends BaseObject implements IAnimatable {
    * @version DragonBones 3.0
    * @language en_US
    */
-  /**
-   * - 通过显示对象获取特定的骨骼。
-   * @param display - 显示对象。
-   * @see dragonBones.Bone
-   * @version DragonBones 3.0
-   * @language zh_CN
-   */
   public getBoneByDisplay(display: any): Bone | null {
     const slot = this.getSlotByDisplay(display);
 
@@ -625,13 +561,6 @@ export class Armature extends BaseObject implements IAnimatable {
    * @see dragonBones.Slot
    * @version DragonBones 3.0
    * @language en_US
-   */
-  /**
-   * - 获取特定的插槽。
-   * @param name - 插槽名称。
-   * @see dragonBones.Slot
-   * @version DragonBones 3.0
-   * @language zh_CN
    */
   public getSlot(name: string): Slot | null {
     for (const slot of this._slots) {
@@ -648,13 +577,6 @@ export class Armature extends BaseObject implements IAnimatable {
    * @see dragonBones.Slot
    * @version DragonBones 3.0
    * @language en_US
-   */
-  /**
-   * - 通过显示对象获取特定的插槽。
-   * @param display - 显示对象。
-   * @see dragonBones.Slot
-   * @version DragonBones 3.0
-   * @language zh_CN
    */
   public getSlotByDisplay(display: any): Slot | null {
     if (display !== null) {
@@ -673,12 +595,6 @@ export class Armature extends BaseObject implements IAnimatable {
    * @version DragonBones 3.0
    * @language en_US
    */
-  /**
-   * - 获取所有的骨骼。
-   * @see dragonBones.Bone
-   * @version DragonBones 3.0
-   * @language zh_CN
-   */
   public getBones(): Array<Bone> {
     return this._bones;
   }
@@ -688,12 +604,6 @@ export class Armature extends BaseObject implements IAnimatable {
    * @version DragonBones 3.0
    * @language en_US
    */
-  /**
-   * - 获取所有的插槽。
-   * @see dragonBones.Slot
-   * @version DragonBones 3.0
-   * @language zh_CN
-   */
   public getSlots(): Array<Slot> {
     return this._slots;
   }
@@ -701,11 +611,6 @@ export class Armature extends BaseObject implements IAnimatable {
    * - Whether to flip the armature horizontally.
    * @version DragonBones 5.5
    * @language en_US
-   */
-  /**
-   * - 是否将骨架水平翻转。
-   * @version DragonBones 5.5
-   * @language zh_CN
    */
   public get flipX(): boolean {
     return this._flipX;
@@ -722,11 +627,6 @@ export class Armature extends BaseObject implements IAnimatable {
    * - Whether to flip the armature vertically.
    * @version DragonBones 5.5
    * @language en_US
-   */
-  /**
-   * - 是否将骨架垂直翻转。
-   * @version DragonBones 5.5
-   * @language zh_CN
    */
   public get flipY(): boolean {
     return this._flipY;
@@ -753,20 +653,6 @@ export class Armature extends BaseObject implements IAnimatable {
    * @version DragonBones 4.5
    * @language en_US
    */
-  /**
-   * - 动画缓存帧率，当设置的值大于 0 的时，将会开启动画缓存。
-   * 通过将动画数据缓存在内存中来提高运行性能，会有一定的内存开销。
-   * 帧率不宜设置的过高，通常跟动画的帧率相当且低于程序运行的帧率。
-   * 开启动画缓存后，某些功能将会失效，比如骨骼的 offset 属性等。
-   * @example
-   * <pre>
-   *     armature.cacheFrameRate = 24;
-   * </pre>
-   * @see dragonBones.DragonBonesData#frameRate
-   * @see dragonBones.ArmatureData#frameRate
-   * @version DragonBones 4.5
-   * @language zh_CN
-   */
   public get cacheFrameRate(): number {
     return this._armatureData.cacheFrameRate;
   }
@@ -788,11 +674,6 @@ export class Armature extends BaseObject implements IAnimatable {
    * @version DragonBones 3.0
    * @language en_US
    */
-  /**
-   * - 骨架名称。
-   * @version DragonBones 3.0
-   * @language zh_CN
-   */
   public get name(): string {
     return this._armatureData.name;
   }
@@ -802,12 +683,6 @@ export class Armature extends BaseObject implements IAnimatable {
    * @version DragonBones 4.5
    * @language en_US
    */
-  /**
-   * - 骨架数据。
-   * @see dragonBones.ArmatureData
-   * @version DragonBones 4.5
-   * @language zh_CN
-   */
   public get armatureData(): ArmatureData {
     return this._armatureData;
   }
@@ -816,12 +691,6 @@ export class Armature extends BaseObject implements IAnimatable {
    * @see dragonBones.Animation
    * @version DragonBones 3.0
    * @language en_US
-   */
-  /**
-   * - 动画播放器。
-   * @see dragonBones.Animation
-   * @version DragonBones 3.0
-   * @language zh_CN
    */
   public get animation(): Animation {
     return this._animation;
@@ -837,11 +706,6 @@ export class Armature extends BaseObject implements IAnimatable {
    * @version DragonBones 4.5
    * @language en_US
    */
-  /**
-   * - 该骨架的 EventDispatcher 实例。
-   * @version DragonBones 4.5
-   * @language zh_CN
-   */
   public get eventDispatcher(): IEventDispatcher {
     return this._proxy;
   }
@@ -851,13 +715,6 @@ export class Armature extends BaseObject implements IAnimatable {
    * Depending on the rendering engine, the type will be different, usually the DisplayObjectContainer type.
    * @version DragonBones 3.0
    * @language en_US
-   */
-  /**
-   * - 显示容器实例。
-   * 插槽的显示对象都会以此显示容器为父级。
-   * 根据渲染引擎的不同，类型会不同，通常是 DisplayObjectContainer 类型。
-   * @version DragonBones 3.0
-   * @language zh_CN
    */
   public get display(): any {
     return this._display;
@@ -920,12 +777,6 @@ export class Armature extends BaseObject implements IAnimatable {
    * @version DragonBones 4.5
    * @language en_US
    */
-  /**
-   * - 该骨架所属的父插槽。
-   * @see dragonBones.Slot
-   * @version DragonBones 4.5
-   * @language zh_CN
-   */
   public get parent(): Slot | null {
     return this._parent;
   }
@@ -933,11 +784,6 @@ export class Armature extends BaseObject implements IAnimatable {
    * - Deprecated, please refer to {@link #display}.
    * @deprecated
    * @language en_US
-   */
-  /**
-   * - 已废弃，请参考 {@link #display}。
-   * @deprecated
-   * @language zh_CN
    */
   public getDisplay(): any {
     return this._display;

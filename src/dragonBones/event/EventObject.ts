@@ -1,4 +1,3 @@
-
 import { AnimationState } from "../animation/AnimationState";
 import { Armature } from "../armature/Armature";
 import { Bone } from "../armature/Bone";
@@ -103,32 +102,17 @@ import { EventStringType } from "./IEventDispatcher";
          * @version DragonBones 4.5
          * @language en_US
          */
-        /**
-         * - 如果是帧事件，此值用来描述该事件在动画时间轴中所处的时间。（以秒为单位）
-         * @version DragonBones 4.5
-         * @language zh_CN
-         */
         public time: number;
         /**
          * - The event type。
          * @version DragonBones 4.5
          * @language en_US
          */
-        /**
-         * - 事件类型。
-         * @version DragonBones 4.5
-         * @language zh_CN
-         */
         public type: EventStringType;
         /**
          * - The event name. (The frame event name or the frame sound name)
          * @version DragonBones 4.5
          * @language en_US
-         */
-        /**
-         * - 事件名称。 (帧事件的名称或帧声音的名称)
-         * @version DragonBones 4.5
-         * @language zh_CN
          */
         public name: string;
         /**
@@ -137,24 +121,12 @@ import { EventStringType } from "./IEventDispatcher";
          * @version DragonBones 4.5
          * @language en_US
          */
-        /**
-         * - 发出该事件的骨架。
-         * @see dragonBones.Armature
-         * @version DragonBones 4.5
-         * @language zh_CN
-         */
         public armature: Armature;
         /**
          * - The bone that dispatch the event.
          * @see dragonBones.Bone
          * @version DragonBones 4.5
          * @language en_US
-         */
-        /**
-         * - 发出该事件的骨骼。
-         * @see dragonBones.Bone
-         * @version DragonBones 4.5
-         * @language zh_CN
          */
         public bone: Bone | null;
         /**
@@ -163,24 +135,12 @@ import { EventStringType } from "./IEventDispatcher";
          * @version DragonBones 4.5
          * @language en_US
          */
-        /**
-         * - 发出该事件的插槽。
-         * @see dragonBones.Slot
-         * @version DragonBones 4.5
-         * @language zh_CN
-         */
         public slot: Slot | null;
         /**
          * - The animation state that dispatch the event.
          * @see dragonBones.AnimationState
          * @version DragonBones 4.5
          * @language en_US
-         */
-        /**
-         * - 发出该事件的动画状态。
-         * @see dragonBones.AnimationState
-         * @version DragonBones 4.5
-         * @language zh_CN
          */
         public animationState: AnimationState;
         /**

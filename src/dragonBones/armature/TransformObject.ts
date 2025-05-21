@@ -18,11 +18,6 @@ export abstract class TransformObject extends BaseObject {
    * @version DragonBones 3.0
    * @language en_US
    */
-  /**
-   * - 相对于骨架坐标系的矩阵。
-   * @version DragonBones 3.0
-   * @language zh_CN
-   */
   public readonly globalTransformMatrix: Matrix = new Matrix();
   /**
    * - A transform relative to the armature coordinate system.
@@ -30,24 +25,12 @@ export abstract class TransformObject extends BaseObject {
    * @version DragonBones 3.0
    * @language en_US
    */
-  /**
-   * - 相对于骨架坐标系的变换。
-   * @see #updateGlobalTransform()
-   * @version DragonBones 3.0
-   * @language zh_CN
-   */
   public readonly global: Transform = new Transform();
   /**
    * - The offset transform relative to the armature or the parent bone coordinate system.
    * @see #dragonBones.Bone#invalidUpdate()
    * @version DragonBones 3.0
    * @language en_US
-   */
-  /**
-   * - 相对于骨架或父骨骼坐标系的偏移变换。
-   * @see #dragonBones.Bone#invalidUpdate()
-   * @version DragonBones 3.0
-   * @language zh_CN
    */
   public readonly offset: Transform = new Transform();
   /**
@@ -97,17 +80,6 @@ export abstract class TransformObject extends BaseObject {
    * @version DragonBones 3.0
    * @language en_US
    */
-  /**
-   * - 出于性能的考虑，骨骼或插槽的 {@link #global} 属性中的旋转或缩放并不总是正确可访问的，有些引擎并不依赖这些属性更新渲染，比如 Egret。
-   * 使用此方法可以保证访问到 {@link #global} 属性中正确的旋转或缩放。
-   * @example
-   * <pre>
-   *     bone.updateGlobalTransform();
-   *     let rotation = bone.global.rotation;
-   * </pre>
-   * @version DragonBones 3.0
-   * @language zh_CN
-   */
   public updateGlobalTransform(): void {
     if (this._globalDirty) {
       this._globalDirty = false;
@@ -118,11 +90,6 @@ export abstract class TransformObject extends BaseObject {
    * - The armature to which it belongs.
    * @version DragonBones 3.0
    * @language en_US
-   */
-  /**
-   * - 所属的骨架。
-   * @version DragonBones 3.0
-   * @language zh_CN
    */
   public get armature(): Armature {
     return this._armature;

@@ -41,13 +41,6 @@ export abstract class BaseObject {
    * @version DragonBones 4.5
    * @language en_US
    */
-  /**
-   * - 设置特定对象池的最大缓存数量。
-   * @param objectConstructor - 特定的类。 (不设置则设置所有对象池的最大缓存数量)
-   * @param maxCount - 最大缓存数量。
-   * @version DragonBones 4.5
-   * @language zh_CN
-   */
   public static setMaxCount(
     objectConstructor: typeof BaseObject | null,
     maxCount: number
@@ -89,12 +82,6 @@ export abstract class BaseObject {
    * @version DragonBones 4.5
    * @language en_US
    */
-  /**
-   * - 清除特定对象池的缓存实例。
-   * @param objectConstructor - 特定的类。 (不设置则清除所有缓存的实例)
-   * @version DragonBones 4.5
-   * @language zh_CN
-   */
   public static clearPool(
     objectConstructor: typeof BaseObject | null = null
   ): void {
@@ -120,12 +107,6 @@ export abstract class BaseObject {
    * @version DragonBones 4.5
    * @language en_US
    */
-  /**
-   * - 从对象池中获取特定类的实例。
-   * @param objectConstructor - 特定的类。
-   * @version DragonBones 4.5
-   * @language zh_CN
-   */
   public static borrowObject<T extends BaseObject>(objectConstructor: {
     new (): T;
   }): T {
@@ -149,11 +130,6 @@ export abstract class BaseObject {
    * @version DragonBones 4.5
    * @language en_US
    */
-  /**
-   * - 分配给此实例的唯一标识号。
-   * @version DragonBones 4.5
-   * @language zh_CN
-   */
   public readonly hashCode: number = BaseObject._hashCode++;
   private _isInPool: boolean = false;
 
@@ -162,11 +138,6 @@ export abstract class BaseObject {
    * - Clear the object and return it back to object pool。
    * @version DragonBones 4.5
    * @language en_US
-   */
-  /**
-   * - 清除该实例的所有数据并将其返还对象池。
-   * @version DragonBones 4.5
-   * @language zh_CN
    */
   public returnToPool(): void {
     this._onClear();

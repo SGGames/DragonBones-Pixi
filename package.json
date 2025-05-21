@@ -1,7 +1,7 @@
 {
   "name": "dragonbones-pixijs",
-  "version": "1.0.3",
-  "description": "DragonBones runtime for pixi v7,v8+",
+  "version": "1.0.5",
+  "description": "DragonBones runtime for pixi v8",
   "type": "module",
   "exports": {
     ".": {
@@ -10,10 +10,12 @@
     }
   },
   "files": [
-    "dist"
+    "dist",
+    "dist-types"
   ],
   "main": "dist/dragonbones-pixi.umd.cjs",
   "module": "dist/dragonbones-pixi.js",
+  "types": "dist-types/lib.d.ts",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/SGGames/DragonBones-Pixi.git"

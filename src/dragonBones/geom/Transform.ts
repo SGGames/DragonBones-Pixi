@@ -44,21 +44,11 @@ export class Transform {
    * @version DragonBones 3.0
    * @language en_US
    */
-  /**
-   * - 水平位移。
-   * @version DragonBones 3.0
-   * @language zh_CN
-   */
   public x: number;
   /**
    * - Vertical translate.
    * @version DragonBones 3.0
    * @language en_US
-   */
-  /**
-   * - 垂直位移。
-   * @version DragonBones 3.0
-   * @language zh_CN
    */
   public y: number;
   /**
@@ -66,21 +56,11 @@ export class Transform {
    * @version DragonBones 3.0
    * @language en_US
    */
-  /**
-   * - 倾斜。 （以弧度为单位）
-   * @version DragonBones 3.0
-   * @language zh_CN
-   */
   public skew: number;
   /**
    * - rotation. (In radians)
    * @version DragonBones 3.0
    * @language en_US
-   */
-  /**
-   * - 旋转。 （以弧度为单位）
-   * @version DragonBones 3.0
-   * @language zh_CN
    */
   public rotation: number;
   /**
@@ -88,21 +68,11 @@ export class Transform {
    * @version DragonBones 3.0
    * @language en_US
    */
-  /**
-   * - 水平缩放。
-   * @version DragonBones 3.0
-   * @language zh_CN
-   */
   public scaleX: number;
   /**
    * - Vertical scaling.
    * @version DragonBones 3.0
    * @language en_US
-   */
-  /**
-   * - 垂直缩放。
-   * @version DragonBones 3.0
-   * @language zh_CN
    */
   public scaleY: number;
   /**

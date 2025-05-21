@@ -9,16 +9,6 @@ import { AnimationFadeOutMode, TweenType } from "../core/DragonBones";
  * @version DragonBones 5.0
  * @language en_US
  */
-
-
-/**
- * - 动画配置用来描述播放一个动画状态所需要的全部信息。
- * 该 API 仍在实验阶段，使用时可能遭遇 bug 或稳定性或兼容性问题。
- * @see dragonBones.AnimationState
- * @beta
- * @version DragonBones 5.0
- * @language zh_CN
- */
 export class AnimationConfig extends BaseObject {
   public static toString(): string {
     return "[class dragonBones.AnimationConfig]";
@@ -33,13 +23,6 @@ export class AnimationConfig extends BaseObject {
    * @default dragonBones.AnimationFadeOutMode.All
    * @version DragonBones 5.0
    * @language en_US
-   */
-  /**
-   * - 淡入动画状态时淡出其他动画状态的模式。
-   * 该属性通常用来指定多个动画状态混合时的相互替换关系。
-   * @default dragonBones.AnimationFadeOutMode.All
-   * @version DragonBones 5.0
-   * @language zh_CN
    */
   public fadeOutMode: AnimationFadeOutMode;
   /**
@@ -70,14 +53,6 @@ export class AnimationConfig extends BaseObject {
    * @version DragonBones 5.0
    * @language en_US
    */
-  /**
-   * - 动画状态是否对插槽的显示对象属性有控制权。
-   * 有时混合一个动画状态并不希望其控制插槽的显示对象属性，
-   * 尤其是其他动画状态正在控制这些插槽的显示对象属性时。
-   * @default true
-   * @version DragonBones 5.0
-   * @language zh_CN
-   */
   public displayControl: boolean;
   /**
    * - Whether to reset the objects without animation to the armature pose when the animation state is start to play.
@@ -85,13 +60,6 @@ export class AnimationConfig extends BaseObject {
    * @default true
    * @version DragonBones 5.1
    * @language en_US
-   */
-  /**
-   * - 开始播放动画状态时是否将没有动画的对象重置为骨架初始值。
-   * 通常在混合多个动画状态时应该将该属性设置为 false。
-   * @default true
-   * @version DragonBones 5.1
-   * @language zh_CN
    */
   public resetToPose: boolean;
   /**
@@ -103,11 +71,6 @@ export class AnimationConfig extends BaseObject {
    * @version DragonBones 3.0
    * @language en_US
    */
-  /**
-   * - 播放次数。 [0: 无限循环播放, [1~N]: 循环播放 N 次]
-   * @version DragonBones 3.0
-   * @language zh_CN
-   */
   public playTimes: number;
   /**
    * - The blend layer.
@@ -117,26 +80,12 @@ export class AnimationConfig extends BaseObject {
    * @version DragonBones 5.0
    * @language en_US
    */
-  /**
-   * - 混合图层。
-   * 图层高的动画状态会优先获取混合权重。
-   * 当混合权重分配超过 1 时，剩余的动画状态将不再获得权重分配。
-   * @readonly
-   * @version DragonBones 5.0
-   * @language zh_CN
-   */
   public layer: number;
   /**
    * - The start time of play. (In seconds)
    * @default 0.0
    * @version DragonBones 5.0
    * @language en_US
-   */
-  /**
-   * - 播放的开始时间。 （以秒为单位）
-   * @default 0.0
-   * @version DragonBones 5.0
-   * @language zh_CN
    */
   public position: number;
   /**
@@ -145,13 +94,6 @@ export class AnimationConfig extends BaseObject {
    * @default -1.0
    * @version DragonBones 5.0
    * @language en_US
-   */
-  /**
-   * - 播放的持续时间。
-   * [-1: 使用动画数据默认值, 0: 动画停止, (0~N]: 持续时间] （以秒为单位）
-   * @default -1.0
-   * @version DragonBones 5.0
-   * @language zh_CN
    */
   public duration: number;
   /**
@@ -162,26 +104,12 @@ export class AnimationConfig extends BaseObject {
    * @version DragonBones 3.0
    * @language en_US
    */
-  /**
-   * - 播放速度。
-   * 该值与 {@link dragonBones.Animation#timeScale} 是叠加关系。
-   * [(-N~0): 倒转播放, 0: 停止播放, (0~1): 慢速播放, 1: 正常播放, (1~N): 快速播放]
-   * @default 1.0
-   * @version DragonBones 3.0
-   * @language zh_CN
-   */
   public timeScale: number;
   /**
    * - The blend weight.
    * @default 1.0
    * @version DragonBones 5.0
    * @language en_US
-   */
-  /**
-   * - 混合权重。
-   * @default 1.0
-   * @version DragonBones 5.0
-   * @language zh_CN
    */
   public weight: number;
   /**
@@ -191,13 +119,6 @@ export class AnimationConfig extends BaseObject {
    * @version DragonBones 5.0
    * @language en_US
    */
-  /**
-   * - 淡入时间。
-   * [-1: 使用动画数据默认值, [0~N]: 淡入时间] （以秒为单位）
-   * @default -1.0
-   * @version DragonBones 5.0
-   * @language zh_CN
-   */
   public fadeInTime: number;
   /**
    * - The auto fade out time when the animation state play completed.
@@ -206,34 +127,17 @@ export class AnimationConfig extends BaseObject {
    * @version DragonBones 5.0
    * @language en_US
    */
-  /**
-   * - 动画状态播放完成后的自动淡出时间。
-   * [-1: 不自动淡出, [0~N]: 淡出时间] （以秒为单位）
-   * @default -1.0
-   * @version DragonBones 5.0
-   * @language zh_CN
-   */
   public autoFadeOutTime: number;
   /**
    * - The name of the animation state. (Can be different from the name of the animation data)
    * @version DragonBones 5.0
    * @language en_US
    */
-  /**
-   * - 动画状态名称。 （可以不同于动画数据）
-   * @version DragonBones 5.0
-   * @language zh_CN
-   */
   public name: string;
   /**
    * - The animation data name.
    * @version DragonBones 5.0
    * @language en_US
-   */
-  /**
-   * - 动画数据名称。
-   * @version DragonBones 5.0
-   * @language zh_CN
    */
   public animation: string;
   /**
@@ -242,13 +146,6 @@ export class AnimationConfig extends BaseObject {
    * @readonly
    * @version DragonBones 5.0
    * @language en_US
-   */
-  /**
-   * - 混合组名称。
-   * 该属性通常用来指定多个动画状态混合时的相互替换关系。
-   * @readonly
-   * @version DragonBones 5.0
-   * @language zh_CN
    */
   public group: string;
   /**

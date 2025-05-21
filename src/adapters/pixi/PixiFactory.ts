@@ -1,4 +1,3 @@
-
 import * as PIXI from "pixi.js";
 import { PixiArmatureDisplay } from "./PixiArmatureDisplay";
 import { PixiSlot } from "./PixiSlot";
@@ -196,12 +195,6 @@ export class PixiFactory extends BaseFactory {
    * Sound events can be listened to uniformly from the manager.
    * @version DragonBones 4.5
    * @language en_US
-   */
-  /**
-   * - 全局声音事件管理器。
-   * 声音事件可以从该管理器统一侦听。
-   * @version DragonBones 4.5
-   * @language zh_CN
    */
   public get soundEventManager(): PixiArmatureDisplay {
     return this._dragonBones.eventManager as PixiArmatureDisplay;

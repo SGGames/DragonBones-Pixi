@@ -127,6 +127,11 @@ Pixi.js
 - https://github.com/pixijs/pixijs
 - https://pixijs.com/8.x/guides/migrations/v8 (How to migrate from old version)
 
+## License
+MIT License
+- Same as DragonBones.js
+- Same as Pixi.js
+
 ## Contributions
 - Credit to SGGames.us
 - Main contributor: @atomixnmc

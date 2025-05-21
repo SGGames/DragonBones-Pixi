@@ -162,17 +162,6 @@ export class DisplayFrame extends BaseObject {
  * @version DragonBones 3.0
  * @language en_US
  */
-/**
- * - 插槽附着在骨骼上，控制显示对象的显示状态和属性。
- * 一个骨骼上可以包含多个插槽。
- * 一个插槽中可以包含多个显示对象，同一时间只能显示其中的一个显示对象，但可以在动画播放的过程中切换显示对象实现帧动画。
- * 显示对象可以是普通的图片纹理，也可以是子骨架的显示容器，网格显示对象，还可以是自定义的其他显示对象。
- * @see dragonBones.Armature
- * @see dragonBones.Bone
- * @see dragonBones.SlotData
- * @version DragonBones 3.0
- * @language zh_CN
- */
 export abstract class Slot extends TransformObject {
   /**
    * - Displays the animated state or mixed group name controlled by the object, set to null to be controlled by all animation states.
@@ -182,15 +171,6 @@ export abstract class Slot extends TransformObject {
    * @see dragonBones.AnimationState#group
    * @version DragonBones 4.5
    * @language en_US
-   */
-  /**
-   * - 显示对象受到控制的动画状态或混合组名称，设置为 null 则表示受所有的动画状态控制。
-   * @default null
-   * @see dragonBones.AnimationState#displayControl
-   * @see dragonBones.AnimationState#name
-   * @see dragonBones.AnimationState#group
-   * @version DragonBones 4.5
-   * @language zh_CN
    */
   public displayController: string | null;
   protected _displayDataDirty: boolean;
@@ -860,11 +840,6 @@ export abstract class Slot extends TransformObject {
    * @version DragonBones 4.5
    * @language en_US
    */
-  /**
-   * - 强制插槽在下一帧更新显示对象的状态。
-   * @version DragonBones 4.5
-   * @language zh_CN
-   */
   public invalidUpdate(): void {
     this._displayDataDirty = true;
     this._displayDirty = true;
@@ -1019,15 +994,6 @@ export abstract class Slot extends TransformObject {
    * @version DragonBones 5.0
    * @language en_US
    */
-  /**
-   * - 检查特定点是否在插槽的自定义边界框内。
-   * 点的坐标系为骨架内坐标系。
-   * 自定义边界框需要在 DragonBones Pro 中自定义。
-   * @param x - 点的水平坐标。
-   * @param y - 点的垂直坐标。
-   * @version DragonBones 5.0
-   * @language zh_CN
-   */
   public containsPoint(x: number, y: number): boolean {
     if (this._boundingBoxData === null) {
       return false;
@@ -1058,21 +1024,6 @@ export abstract class Slot extends TransformObject {
    * @returns Intersection situation. [1: Disjoint and segments within the bounding box, 0: Disjoint, 1: Intersecting and having a nodal point and ending in the bounding box, 2: Intersecting and having a nodal point and starting at the bounding box, 3: Intersecting and having two intersections, N: Intersecting and having N intersections]
    * @version DragonBones 5.0
    * @language en_US
-   */
-  /**
-   * - 检查特定线段是否与插槽的自定义边界框相交。
-   * 线段和交点的坐标系均为骨架内坐标系。
-   * 自定义边界框需要在 DragonBones Pro 中自定义。
-   * @param xA - 线段起点的水平坐标。
-   * @param yA - 线段起点的垂直坐标。
-   * @param xB - 线段终点的水平坐标。
-   * @param yB - 线段终点的垂直坐标。
-   * @param intersectionPointA - 线段从起点到终点与边界框相交的第一个交点。 （如果未设置，则不计算交点）
-   * @param intersectionPointB - 线段从终点到起点与边界框相交的第一个交点。 （如果未设置，则不计算交点）
-   * @param normalRadians - 交点边界框切线的法线弧度。 [x: 第一个交点切线的法线弧度, y: 第二个交点切线的法线弧度] （如果未设置，则不计算法线）
-   * @returns 相交的情况。 [-1: 不相交且线段在包围盒内, 0: 不相交, 1: 相交且有一个交点且终点在包围盒内, 2: 相交且有一个交点且起点在包围盒内, 3: 相交且有两个交点, N: 相交且有 N 个交点]
-   * @version DragonBones 5.0
-   * @language zh_CN
    */
   public intersectsSegment(
     xA: number,
@@ -1227,17 +1178,6 @@ export abstract class Slot extends TransformObject {
    * @version DragonBones 4.5
    * @language en_US
    */
-  /**
-   * - 此时显示的显示对象在显示列表中的索引。
-   * @example
-   * <pre>
-   *     let slot = armature.getSlot("weapon");
-   *     slot.displayIndex = 3;
-   *     slot.displayController = "none";
-   * </pre>
-   * @version DragonBones 4.5
-   * @language zh_CN
-   */
   public get displayIndex(): number {
     return this._displayIndex;
   }
@@ -1251,12 +1191,6 @@ export abstract class Slot extends TransformObject {
    * @version DragonBones 3.0
    * @language en_US
    */
-  /**
-   * - 插槽名称。
-   * @see dragonBones.SlotData#name
-   * @version DragonBones 3.0
-   * @language zh_CN
-   */
   public get name(): string {
     return this._slotData.name;
   }
@@ -1264,11 +1198,6 @@ export abstract class Slot extends TransformObject {
    * - Contains a display list of display objects or child armatures.
    * @version DragonBones 3.0
    * @language en_US
-   */
-  /**
-   * - 包含显示对象或子骨架的显示列表。
-   * @version DragonBones 3.0
-   * @language zh_CN
    */
   public get displayList(): Array<any> {
     const displays = new Array<any>();
@@ -1291,12 +1220,6 @@ export abstract class Slot extends TransformObject {
    * @version DragonBones 4.5
    * @language en_US
    */
-  /**
-   * - 插槽数据。
-   * @see dragonBones.SlotData
-   * @version DragonBones 4.5
-   * @language zh_CN
-   */
   public get slotData(): SlotData {
     return this._slotData;
   }
@@ -1304,11 +1227,6 @@ export abstract class Slot extends TransformObject {
    * - The custom bounding box data for the slot at current time.
    * @version DragonBones 5.0
    * @language en_US
-   */
-  /**
-   * - 插槽此时的自定义包围盒数据。
-   * @version DragonBones 5.0
-   * @language zh_CN
    */
   public get boundingBoxData(): BoundingBoxData | null {
     return this._boundingBoxData;
@@ -1334,16 +1252,6 @@ export abstract class Slot extends TransformObject {
    * </pre>
    * @version DragonBones 3.0
    * @language en_US
-   */
-  /**
-   * - 插槽此时显示的显示对象。
-   * @example
-   * <pre>
-   *     let slot = armature.getSlot("text");
-   *     slot.display = new yourEngine.TextField();
-   * </pre>
-   * @version DragonBones 3.0
-   * @language zh_CN
    */
   public get display(): any {
     return this._display;
@@ -1374,21 +1282,6 @@ export abstract class Slot extends TransformObject {
    * @version DragonBones 3.0
    * @language en_US
    */
-  /**
-   * - 插槽此时显示的子骨架。
-   * 注意，被替换的对象或子骨架并不会被回收，根据语言和引擎的不同，需要额外处理。
-   * @example
-   * <pre>
-   *     let slot = armature.getSlot("weapon");
-   *     let prevChildArmature = slot.childArmature;
-   *     if (prevChildArmature) {
-   *         prevChildArmature.dispose();
-   *     }
-   *     slot.childArmature = factory.buildArmature("weapon_blabla", "weapon_blabla_project");
-   * </pre>
-   * @version DragonBones 3.0
-   * @language zh_CN
-   */
   public get childArmature(): Armature | null {
     return this._childArmature;
   }
@@ -1404,11 +1297,6 @@ export abstract class Slot extends TransformObject {
    * @version DragonBones 3.0
    * @language en_US
    */
-  /**
-   * - 所属的父骨骼。
-   * @version DragonBones 3.0
-   * @language zh_CN
-   */
   public get parent(): Bone {
     return this._parent;
   }
@@ -1418,11 +1306,6 @@ export abstract class Slot extends TransformObject {
    * @deprecated
    * @language en_US
    */
-  /**
-   * - 已废弃，请参考 {@link #display}。
-   * @deprecated
-   * @language zh_CN
-   */
   public getDisplay(): any {
     return this._display;
   }
@@ -1430,11 +1313,6 @@ export abstract class Slot extends TransformObject {
    * - Deprecated, please refer to {@link #display}.
    * @deprecated
    * @language en_US
-   */
-  /**
-   * - 已废弃，请参考 {@link #display}。
-   * @deprecated
-   * @language zh_CN
    */
   public setDisplay(value: any) {
     this.display = value;

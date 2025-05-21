@@ -8,11 +8,6 @@ import { ArmatureData } from "./ArmatureData";
  * @version DragonBones 3.0
  * @language en_US
  */
-/**
- * - 动画数据。
- * @version DragonBones 3.0
- * @language zh_CN
- */
 export class AnimationData extends BaseObject {
   public static toString(): string {
     return "[class dragonBones.AnimationData]";
@@ -41,32 +36,17 @@ export class AnimationData extends BaseObject {
    * @version DragonBones 3.0
    * @language en_US
    */
-  /**
-   * - 动画的帧数。
-   * @version DragonBones 3.0
-   * @language zh_CN
-   */
   public frameCount: number;
   /**
    * - The play times of the animation. [0: Loop play, [1~N]: Play N times]
    * @version DragonBones 3.0
    * @language en_US
    */
-  /**
-   * - 动画的播放次数。 [0: 无限循环播放, [1~N]: 循环播放 N 次]
-   * @version DragonBones 3.0
-   * @language zh_CN
-   */
   public playTimes: number;
   /**
    * - The duration of the animation. (In seconds)
    * @version DragonBones 3.0
    * @language en_US
-   */
-  /**
-   * - 动画的持续时间。 （以秒为单位）
-   * @version DragonBones 3.0
-   * @language zh_CN
    */
   public duration: number;
   /**
@@ -78,11 +58,6 @@ export class AnimationData extends BaseObject {
    * @version DragonBones 3.0
    * @language en_US
    */
-  /**
-   * - 动画的淡入时间。 （以秒为单位）
-   * @version DragonBones 3.0
-   * @language zh_CN
-   */
   public fadeInTime: number;
   /**
    * @private
@@ -92,11 +67,6 @@ export class AnimationData extends BaseObject {
    * - The animation name.
    * @version DragonBones 3.0
    * @language en_US
-   */
-  /**
-   * - 动画名称。
-   * @version DragonBones 3.0
-   * @language zh_CN
    */
   public name: string;
   /**

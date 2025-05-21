@@ -62,14 +62,6 @@ export class AnimationState extends BaseObject {
    * @version DragonBones 5.0
    * @language en_US
    */
-  /**
-   * - 动画状态是否对插槽的显示对象属性有控制权。
-   * 有时混合一个动画状态并不希望其控制插槽的显示对象属性，
-   * 尤其是其他动画状态正在控制这些插槽的显示对象属性时。
-   * @default true
-   * @version DragonBones 5.0
-   * @language zh_CN
-   */
   public displayControl: boolean;
   /**
    * - Whether to reset the objects without animation to the armature pose when the animation state is start to play.
@@ -77,13 +69,6 @@ export class AnimationState extends BaseObject {
    * @default true
    * @version DragonBones 5.1
    * @language en_US
-   */
-  /**
-   * - 开始播放动画状态时是否将没有动画的对象重置为骨架初始值。
-   * 通常在混合多个动画状态时应该将该属性设置为 false。
-   * @default true
-   * @version DragonBones 5.1
-   * @language zh_CN
    */
   public resetToPose: boolean;
   /**
@@ -95,11 +80,6 @@ export class AnimationState extends BaseObject {
    * @version DragonBones 3.0
    * @language en_US
    */
-  /**
-   * - 播放次数。 [0: 无限循环播放, [1~N]: 循环播放 N 次]
-   * @version DragonBones 3.0
-   * @language zh_CN
-   */
   public playTimes: number;
   /**
    * - The blend layer.
@@ -109,14 +89,6 @@ export class AnimationState extends BaseObject {
    * @version DragonBones 5.0
    * @language en_US
    */
-  /**
-   * - 混合图层。
-   * 图层高的动画状态会优先获取混合权重。
-   * 当混合权重分配超过 1 时，剩余的动画状态将不再获得权重分配。
-   * @readonly
-   * @version DragonBones 5.0
-   * @language zh_CN
-   */
   public layer: number;
   /**
    * - The play speed.
@@ -125,14 +97,6 @@ export class AnimationState extends BaseObject {
    * @default 1.0
    * @version DragonBones 3.0
    * @language en_US
-   */
-  /**
-   * - 播放速度。
-   * 该值与 {@link dragonBones.Animation#timeScale} 是叠加关系。
-   * [(-N~0): 倒转播放, 0: 停止播放, (0~1): 慢速播放, 1: 正常播放, (1~N): 快速播放]
-   * @default 1.0
-   * @version DragonBones 3.0
-   * @language zh_CN
    */
   public timeScale: number;
   /**
@@ -158,13 +122,6 @@ export class AnimationState extends BaseObject {
    * @version DragonBones 5.0
    * @language en_US
    */
-  /**
-   * - 动画状态播放完成后的自动淡出时间。
-   * [-1: 不自动淡出, [0~N]: 淡出时间] （以秒为单位）
-   * @default -1.0
-   * @version DragonBones 5.0
-   * @language zh_CN
-   */
   public autoFadeOutTime: number;
   /**
    * @private
@@ -176,12 +133,6 @@ export class AnimationState extends BaseObject {
    * @version DragonBones 5.0
    * @language en_US
    */
-  /**
-   * - 动画状态名称。 （可以不同于动画数据）
-   * @readonly
-   * @version DragonBones 5.0
-   * @language zh_CN
-   */
   public name: string;
   /**
    * - The blend group name of the animation state.
@@ -189,13 +140,6 @@ export class AnimationState extends BaseObject {
    * @readonly
    * @version DragonBones 5.0
    * @language en_US
-   */
-  /**
-   * - 混合组名称。
-   * 该属性通常用来指定多个动画状态混合时的相互替换关系。
-   * @readonly
-   * @version DragonBones 5.0
-   * @language zh_CN
    */
   public group: string;
   private _timelineDirty: number;
@@ -1159,11 +1103,6 @@ export class AnimationState extends BaseObject {
    * @version DragonBones 3.0
    * @language en_US
    */
-  /**
-   * - 继续播放。
-   * @version DragonBones 3.0
-   * @language zh_CN
-   */
   public play(): void {
     this._playheadState = 3; // 11
   }
@@ -1171,11 +1110,6 @@ export class AnimationState extends BaseObject {
    * - Stop play.
    * @version DragonBones 3.0
    * @language en_US
-   */
-  /**
-   * - 暂停播放。
-   * @version DragonBones 3.0
-   * @language zh_CN
    */
   public stop(): void {
     this._playheadState &= 1; // 0x
@@ -1186,13 +1120,6 @@ export class AnimationState extends BaseObject {
    * @param pausePlayhead - Whether to pause the animation playing when fade out.
    * @version DragonBones 3.0
    * @language en_US
-   */
-  /**
-   * - 淡出动画状态。
-   * @param fadeOutTime - 淡出时间。 （以秒为单位）
-   * @param pausePlayhead - 淡出时是否暂停播放。
-   * @version DragonBones 3.0
-   * @language zh_CN
    */
   public fadeOut(fadeOutTime: number, pausePlayhead: boolean = true): void {
     if (fadeOutTime < 0.0) {
@@ -1255,12 +1182,6 @@ export class AnimationState extends BaseObject {
    * @version DragonBones 3.0
    * @language en_US
    */
-  /**
-   * - 检查是否包含特定骨骼遮罩。
-   * @param boneName - 骨骼名称。
-   * @version DragonBones 3.0
-   * @language zh_CN
-   */
   public containsBoneMask(boneName: string): boolean {
     return this._boneMask.length === 0 || this._boneMask.indexOf(boneName) >= 0;
   }
@@ -1270,13 +1191,6 @@ export class AnimationState extends BaseObject {
    * @param recursive - Whether or not to add a mask to the bone's sub-bone.
    * @version DragonBones 3.0
    * @language en_US
-   */
-  /**
-   * - 添加特定的骨骼遮罩。
-   * @param boneName - 骨骼名称。
-   * @param recursive - 是否为该骨骼的子骨骼添加遮罩。
-   * @version DragonBones 3.0
-   * @language zh_CN
    */
   public addBoneMask(boneName: string, recursive: boolean = true): void {
     const currentBone = this._armature.getBone(boneName);
@@ -1309,13 +1223,6 @@ export class AnimationState extends BaseObject {
    * @param recursive - Whether to remove the bone's sub-bone mask.
    * @version DragonBones 3.0
    * @language en_US
-   */
-  /**
-   * - 删除特定骨骼的遮罩。
-   * @param boneName - 骨骼名称。
-   * @param recursive - 是否删除该骨骼的子骨骼遮罩。
-   * @version DragonBones 3.0
-   * @language zh_CN
    */
   public removeBoneMask(boneName: string, recursive: boolean = true): void {
     const index = this._boneMask.indexOf(boneName);
@@ -1357,11 +1264,6 @@ export class AnimationState extends BaseObject {
    * - Remove all bone masks.
    * @version DragonBones 3.0
    * @language en_US
-   */
-  /**
-   * - 删除所有骨骼遮罩。
-   * @version DragonBones 3.0
-   * @language zh_CN
    */
   public removeAllBoneMask(): void {
     this._boneMask.length = 0;
@@ -1442,11 +1344,6 @@ export class AnimationState extends BaseObject {
    * @version DragonBones 5.1
    * @language en_US
    */
-  /**
-   * - 是否正在淡入。
-   * @version DragonBones 5.1
-   * @language zh_CN
-   */
   public get isFadeIn(): boolean {
     return this._fadeState < 0;
   }
@@ -1454,11 +1351,6 @@ export class AnimationState extends BaseObject {
    * - Whether the animation state is fading out.
    * @version DragonBones 5.1
    * @language en_US
-   */
-  /**
-   * - 是否正在淡出。
-   * @version DragonBones 5.1
-   * @language zh_CN
    */
   public get isFadeOut(): boolean {
     return this._fadeState > 0;
@@ -1468,11 +1360,6 @@ export class AnimationState extends BaseObject {
    * @version DragonBones 5.1
    * @language en_US
    */
-  /**
-   * - 是否淡入或淡出完毕。
-   * @version DragonBones 5.1
-   * @language zh_CN
-   */
   public get isFadeComplete(): boolean {
     return this._fadeState === 0;
   }
@@ -1480,11 +1367,6 @@ export class AnimationState extends BaseObject {
    * - Whether the animation state is playing.
    * @version DragonBones 3.0
    * @language en_US
-   */
-  /**
-   * - 是否正在播放。
-   * @version DragonBones 3.0
-   * @language zh_CN
    */
   public get isPlaying(): boolean {
     return (
@@ -1496,11 +1378,6 @@ export class AnimationState extends BaseObject {
    * @version DragonBones 3.0
    * @language en_US
    */
-  /**
-   * - 是否播放完毕。
-   * @version DragonBones 3.0
-   * @language zh_CN
-   */
   public get isCompleted(): boolean {
     return this._actionTimeline.playState > 0;
   }
@@ -1508,11 +1385,6 @@ export class AnimationState extends BaseObject {
    * - The times has been played.
    * @version DragonBones 3.0
    * @language en_US
-   */
-  /**
-   * - 已经循环播放的次数。
-   * @version DragonBones 3.0
-   * @language zh_CN
    */
   public get currentPlayTimes(): number {
     return this._actionTimeline.currentPlayTimes;
@@ -1522,11 +1394,6 @@ export class AnimationState extends BaseObject {
    * @version DragonBones 3.0
    * @language en_US
    */
-  /**
-   * - 总播放时间。 （以秒为单位）
-   * @version DragonBones 3.0
-   * @language zh_CN
-   */
   public get totalTime(): number {
     return this._duration;
   }
@@ -1534,11 +1401,6 @@ export class AnimationState extends BaseObject {
    * - The time is currently playing. (In seconds)
    * @version DragonBones 3.0
    * @language en_US
-   */
-  /**
-   * - 当前播放的时间。 （以秒为单位）
-   * @version DragonBones 3.0
-   * @language zh_CN
    */
   public get currentTime(): number {
     return this._actionTimeline.currentTime;
@@ -1588,18 +1450,6 @@ export class AnimationState extends BaseObject {
    * @version DragonBones 5.0
    * @language en_US
    */
-  /**
-   * - 混合权重。
-   * @default 1.0
-   * @version DragonBones 5.0
-   * @language zh_CN
-   */
-  /**
-   * - The animation data.
-   * @see dragonBones.AnimationData
-   * @version DragonBones 3.0
-   * @language en_US
-   */
   public get weight(): number {
     return this._weight;
   }
@@ -1623,10 +1473,10 @@ export class AnimationState extends BaseObject {
     }
   }
   /**
-   * - 动画数据。
+   * - The animation data.
    * @see dragonBones.AnimationData
    * @version DragonBones 3.0
-   * @language zh_CN
+   * @language en_US
    */
   public get animationData(): AnimationData {
     return this._animationData;

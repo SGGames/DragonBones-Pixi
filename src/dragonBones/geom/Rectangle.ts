@@ -1,5 +1,4 @@
-
-    /**
+/**
      * - A Rectangle object is an area defined by its position, as indicated by its top-left corner point (x, y) and by its
      * width and its height.<br/>
      * The x, y, width, and height properties of the Rectangle class are independent of each other; changing the value of
@@ -16,24 +15,12 @@
          * @version DragonBones 3.0
          * @language en_US
          */
-        /**
-         * - 矩形左上角的 x 坐标。
-         * @default 0.0
-         * @version DragonBones 3.0
-         * @language zh_CN
-         */
         public x: number;
         /**
          * - The y coordinate of the top-left corner of the rectangle.
          * @default 0.0
          * @version DragonBones 3.0
          * @language en_US
-         */
-        /**
-         * - 矩形左上角的 y 坐标。
-         * @default 0.0
-         * @version DragonBones 3.0
-         * @language zh_CN
          */
         public y: number;
         /**
@@ -42,24 +29,12 @@
          * @version DragonBones 3.0
          * @language en_US
          */
-        /**
-         * - 矩形的宽度（以像素为单位）。
-         * @default 0.0
-         * @version DragonBones 3.0
-         * @language zh_CN
-         */
         public width: number;
-        /**
-         * - 矩形的高度（以像素为单位）。
-         * @default 0.0
-         * @version DragonBones 3.0
-         * @language en_US
-         */
         /**
          * - The height of the rectangle, in pixels.
          * @default 0.0
          * @version DragonBones 3.0
-         * @language zh_CN
+         * @language en_US
          */
         public height: number;
         /**

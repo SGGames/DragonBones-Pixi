@@ -23,21 +23,11 @@ export class DragonBonesData extends BaseObject {
    * @version DragonBones 3.0
    * @language en_US
    */
-  /**
-   * - 动画帧频。
-   * @version DragonBones 3.0
-   * @language zh_CN
-   */
   public frameRate: number;
   /**
    * - The data version.
    * @version DragonBones 3.0
    * @language en_US
-   */
-  /**
-   * - 数据版本。
-   * @version DragonBones 3.0
-   * @language zh_CN
    */
   public version: string;
   /**
@@ -45,12 +35,6 @@ export class DragonBonesData extends BaseObject {
    * The name is consistent with the DragonBones project name.
    * @version DragonBones 3.0
    * @language en_US
-   */
-  /**
-   * - 龙骨数据名称。
-   * 该名称与龙骨项目名保持一致。
-   * @version DragonBones 3.0
-   * @language zh_CN
    */
   public name: string;
   /**
@@ -69,11 +53,6 @@ export class DragonBonesData extends BaseObject {
    * - All armature data names.
    * @version DragonBones 3.0
    * @language en_US
-   */
-  /**
-   * - 所有的骨架数据名称。
-   * @version DragonBones 3.0
-   * @language zh_CN
    */
   public readonly armatureNames: Array<string> = [];
   /**
@@ -164,12 +143,6 @@ export class DragonBonesData extends BaseObject {
    * @param armatureName - The armature data name.
    * @version DragonBones 3.0
    * @language en_US
-   */
-  /**
-   * - 获取特定的骨架数据。
-   * @param armatureName - 骨架数据名称。
-   * @version DragonBones 3.0
-   * @language zh_CN
    */
   public getArmature(armatureName: string): ArmatureData | null {
     return armatureName in this.armatures ? this.armatures[armatureName] : null;

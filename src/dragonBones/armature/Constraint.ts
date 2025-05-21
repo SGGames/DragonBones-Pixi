@@ -264,7 +264,7 @@ import { Slot, DisplayFrame } from "./Slot";
         }
 
         protected _updatePathVertices(verticesData: GeometryData): void {
-            //计算曲线的节点数据
+            // Calculate the curve's node data
             const armature = this._armature;
             const dragonBonesData = armature.armatureData.parent;
             const scale = armature.armatureData.scale;
@@ -278,7 +278,7 @@ import { Slot, DisplayFrame } from "./Slot";
             this._pathGlobalVertices.length = pathVertexCount * 2;
 
             const weightData = verticesData.weight;
-            //没有骨骼约束我,那节点只受自己的Bone控制
+            // If there is no bone constraint, the node is only controlled by its own Bone
             if (weightData === null) {
                 const parentBone = this._pathSlot.parent;
                 parentBone.updateByConstraint();
@@ -299,7 +299,7 @@ import { Slot, DisplayFrame } from "./Slot";
                 return;
             }
 
-            //有骨骼约束我,那我的节点受骨骼权重控制
+            // If there is a bone constraint, the node is controlled by bone weights
             const bones = this._pathSlot._geometryBones;
             const weightBoneCount = weightData.bones.length;
 
@@ -335,7 +335,7 @@ import { Slot, DisplayFrame } from "./Slot";
         }
 
         protected _computeVertices(start: number, count: number, offset: number, out: Array<number>): void {
-            //TODO优化
+            // TODO: optimize
             for (let i = offset, iW = start; i < count; i += 2) {
                 out[i] = this._pathGlobalVertices[iW++];
                 out[i + 1] = this._pathGlobalVertices[iW++];
@@ -343,7 +343,7 @@ import { Slot, DisplayFrame } from "./Slot";
         }
 
         protected _computeBezierCurve(pathDisplayDta: PathDisplayData, spaceCount: number, tangents: boolean, percentPosition: boolean, percentSpacing: boolean): void {
-            //计算当前的骨骼在曲线上的位置
+            // Calculate the current bone's position on the curve
             const armature = this._armature;
             const intArray = armature.armatureData.parent.intArray;
             const vertexCount = intArray[pathDisplayDta.geometry.offset + BinaryOffset.GeometryVertexCount];
@@ -360,7 +360,7 @@ import { Slot, DisplayFrame } from "./Slot";
             positions.length = spaceCount * 3 + 2;
 
             let pathLength = 0.0;
-            //不需要匀速运动，效率高些
+            // No need for uniform motion, more efficient
             if (!pathDisplayDta.constantSpeed) {
                 const lenghts = pathDisplayDta.curveLengths;
                 curveCount -= isClosed ? 1 : 2;
@@ -389,11 +389,11 @@ import { Slot, DisplayFrame } from "./Slot";
                         curve = 0;
                     }
                     else if (position < 0) {
-                        //TODO
+                        // TODO
                         continue;
                     }
                     else if (position > pathLength) {
-                        //TODO
+                        // TODO
                         continue;
                     }
 
@@ -416,7 +416,7 @@ import { Slot, DisplayFrame } from "./Slot";
                     if (curve !== preCurve) {
                         preCurve = curve;
                         if (isClosed && curve === curveCount) {
-                            //计算曲线
+                            // Calculate the curve
                             this._computeVertices(verticesLength - 4, 4, 0, curveVertices);
                             this._computeVertices(0, 4, 4, curveVertices);
                         }
@@ -432,7 +432,7 @@ import { Slot, DisplayFrame } from "./Slot";
                 return;
             }
 
-            //匀速的
+            // Uniform speed
             if (isClosed) {
                 verticesLength += 2;
                 curveVertices.length = vertexCount;
@@ -583,7 +583,7 @@ import { Slot, DisplayFrame } from "./Slot";
             }
         }
 
-        //Calculates a point on the curve, for a given t value between 0 and 1.
+        // Calculates a point on the curve, for a given t value between 0 and 1.
         private addCurvePosition(t: number, x1: number, y1: number, cx1: number, cy1: number, cx2: number, cy2: number, x2: number, y2: number, out: Array<number>, offset: number, tangents: boolean) {
             if (t === 0) {
                 out[offset] = x1;
@@ -613,7 +613,7 @@ import { Slot, DisplayFrame } from "./Slot";
             out[offset] = x;
             out[offset + 1] = y;
             if (tangents) {
-                //Calculates the curve tangent at the specified t value
+                // Calculates the curve tangent at the specified t value
                 out[offset + 2] = Math.atan2(y - (a * y1 + b * cy1 + c * cy2), x - (a * x1 + b * cx1 + c * cx2));
             }
             else {
@@ -669,7 +669,7 @@ import { Slot, DisplayFrame } from "./Slot";
 
             //
 
-            //曲线节点数据改变:父亲bone改变，权重bones改变，变形顶点改变
+            // Curve node data changes: parent bone changes, weight bones change, deform vertices change
             let isPathVerticeDirty = false;
             if (this._root._childrenTransformDirty) {
                 this._updatePathVertices(pathSlot._geometryData);
@@ -702,9 +702,9 @@ import { Slot, DisplayFrame } from "./Slot";
             let spaces = this._spaces;
             spaces.length = spacesCount;
 
-            //计曲线间隔和长度
+            // Calculate curve intervals and lengths
             if (isChainScaleMode || isLengthMode) {
-                //Bone改变和spacing改变触发
+                // Triggered by Bone change and spacing change
                 spaces[0] = 0;
                 for (let i = 0, l = spacesCount - 1; i < l; i++) {
                     const bone = bones[i];
@@ -730,7 +730,7 @@ import { Slot, DisplayFrame } from "./Slot";
             //
             this._computeBezierCurve(((pathSlot._displayFrame as DisplayFrame).rawDisplayData as PathDisplayData), spacesCount, isTangentMode, positionMode === PositionMode.Percent, spacingMode === SpacingMode.Percent);
 
-            //根据新的节点数据重新采样
+            // Resample according to new node data
             const positions = this._positions;
             let rotateOffset = this.rotateOffset;
             let boneX = positions[0], boneY = positions[1];

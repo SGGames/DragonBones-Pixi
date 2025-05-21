@@ -25,12 +25,6 @@ export class Bone extends TransformObject {
    * @version DragonBones 5.5
    * @language en_US
    */
-  /**
-   * - 偏移模式。
-   * @see #offset
-   * @version DragonBones 5.5
-   * @language zh_CN
-   */
   public offsetMode: OffsetMode;
   /**
    * @internal
@@ -444,18 +438,6 @@ export class Bone extends TransformObject {
    * @version DragonBones 3.0
    * @language en_US
    */
-  /**
-   * - 强制骨骼在下一帧更新变换。
-   * 当该骨骼没有动画状态或其动画状态播放完成时，骨骼将不在继续更新，而此时由于某些原因必须更新骨骼时，则需要显式调用该方法。
-   * @example
-   * <pre>
-   *     let bone = armature.getBone("arm");
-   *     bone.offset.scaleX = 2.0;
-   *     bone.invalidUpdate();
-   * </pre>
-   * @version DragonBones 3.0
-   * @language zh_CN
-   */
   public invalidUpdate(): void {
     this._transformDirty = true;
   }
@@ -464,12 +446,6 @@ export class Bone extends TransformObject {
    * @see dragonBones.Bone
    * @version DragonBones 3.0
    * @language en_US
-   */
-  /**
-   * - 检查该骨骼是否包含特定的骨骼。
-   * @see dragonBones.Bone
-   * @version DragonBones 3.0
-   * @language zh_CN
    */
   public contains(value: Bone): boolean {
     if (value === this) {
@@ -488,11 +464,6 @@ export class Bone extends TransformObject {
    * @version DragonBones 4.5
    * @language en_US
    */
-  /**
-   * - 骨骼数据。
-   * @version DragonBones 4.5
-   * @language zh_CN
-   */
   public get boneData(): BoneData {
     return this._boneData;
   }
@@ -502,13 +473,6 @@ export class Bone extends TransformObject {
    * @see dragonBones.Slot#visible
    * @version DragonBones 3.0
    * @language en_US
-   */
-  /**
-   * - 此骨骼所有插槽的可见。
-   * @default true
-   * @see dragonBones.Slot#visible
-   * @version DragonBones 3.0
-   * @language zh_CN
    */
   public get visible(): boolean {
     return this._visible;
@@ -531,11 +495,6 @@ export class Bone extends TransformObject {
    * @version DragonBones 3.0
    * @language en_US
    */
-  /**
-   * - 骨骼名称。
-   * @version DragonBones 3.0
-   * @language zh_CN
-   */
   public get name(): string {
     return this._boneData.name;
   }
@@ -543,11 +502,6 @@ export class Bone extends TransformObject {
    * - The parent bone to which it belongs.
    * @version DragonBones 3.0
    * @language en_US
-   */
-  /**
-   * - 所属的父骨骼。
-   * @version DragonBones 3.0
-   * @language zh_CN
    */
   public get parent(): Bone | null {
     return this._parent;
