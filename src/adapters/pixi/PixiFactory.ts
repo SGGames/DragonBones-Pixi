@@ -67,7 +67,17 @@ export class PixiFactory extends BaseFactory {
 
     return PixiFactory._factory;
   }
+
   /**
+   * - Create a new factory instance.
+   * @param dataParser - The data parser instance.
+   * @param useSharedTicker - Whether to use the shared ticker.
+   * 
+   * What it will do:
+   * - Create a new DragonBones instance.
+   * - Create new PixiArmatureDisplay instance.
+   * - Link Ticker.shared to the _clockHandler.
+   * - 
    * @inheritDoc
    */
   public constructor(
@@ -114,6 +124,15 @@ export class PixiFactory extends BaseFactory {
     return armature;
   }
 
+  /**
+   * Build a slot.
+   * This method is used to create a slot for the armature.
+   * it will used Pixi.Sprite and MeshSimple as the display object.
+   * @param _dataPackage 
+   * @param slotData 
+   * @param armature 
+   * @returns 
+   */
   protected _buildSlot(
     _dataPackage: BuildArmaturePackage,
     slotData: SlotData,
@@ -131,6 +150,7 @@ export class PixiFactory extends BaseFactory {
 
     return slot;
   }
+
   /**
    * - Create a armature from cached DragonBonesData instances and TextureAtlasData instances, then use the {@link #clock} to update it.
    * The difference is that the armature created by {@link #buildArmature} is not WorldClock instance update.
@@ -169,6 +189,7 @@ export class PixiFactory extends BaseFactory {
 
     return null;
   }
+
   /**
    * - Create the display object with the specified texture.
    * @param textureName - The texture data name.
@@ -190,6 +211,7 @@ export class PixiFactory extends BaseFactory {
 
     return null;
   }
+
   /**
    * - A global sound event manager.
    * Sound events can be listened to uniformly from the manager.

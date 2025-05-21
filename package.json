@@ -27,8 +27,7 @@
     "preview": "vite preview",
     "clean": "tsc --build --clean",
     "build-demo": "vite build --config vite.demo.config.js",
-    "build-demo-ghp": "vite build --base=/DragonBones-Pixi/ --config vite.demo.config.js",
-    "surge": "surge dist-demo dragonbones-pixi-v8-demo.surge.sh"
+    "build-demo-ghp": "vite build --base=/DragonBones-Pixi/ --config vite.demo.config.js"
   },
   "keywords": [
     "dragonbones",
